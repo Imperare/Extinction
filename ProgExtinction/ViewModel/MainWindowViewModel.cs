@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.Timers;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ProgExtinction.ViewModel
@@ -15,7 +16,8 @@ namespace ProgExtinction.ViewModel
         private bool m_modeMinuteur, m_extinctionDesactivee;
         private int m_heure, m_minute, m_seconde;
 
-        public ICommand ProgrammerExtinctionCommand => new RelayCommand(p => ExtinctionDesactivee = !ExtinctionDesactivee, p => ActionAutorisee());
+        public ICommand ProgrammerExtinctionCommand => new RelayCommand(p => ActiverExtinction());
+
         public DateTime DateExtinction
         {
             get
@@ -38,7 +40,30 @@ namespace ProgExtinction.ViewModel
         public bool ModeMinuteur
         {
             get => m_modeMinuteur;
-            set { m_modeMinuteur = value; RaisePropertyChanged(nameof(ModeMinuteur)); MiseAJourDateExtinction(); }
+            set 
+            {
+                m_modeMinuteur = value; 
+                RaisePropertyChanged(nameof(ModeMinuteur));
+
+                if (ModeMinuteur)
+                {
+                    m_heure = 0;
+                    m_minute = 0;
+                    m_seconde = 0;
+
+                    MiseAJourDateExtinction();
+                }
+                else
+                {
+                    m_heure = DateTime.Now.Hour;
+                    m_minute = DateTime.Now.Minute;
+                    m_seconde = DateTime.Now.Second;
+
+                    MiseAJourDateExtinction();
+                }
+
+                RaisePropertyChanged(nameof(Heure), nameof(Minute), nameof(Seconde));
+            }
         }
 
         public int Heure
@@ -110,7 +135,7 @@ namespace ProgExtinction.ViewModel
             }
         }
 
-        private void MiseAJourDateExtinction()
+        private void MiseAJourDateExtinction(DateTime? dateTime = null)
         {
             if (ModeMinuteur)
             {
@@ -118,17 +143,17 @@ namespace ProgExtinction.ViewModel
             }
             else
             {
-                var date = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Heure, Minute, Seconde);
-                if (date < DateTime.Now.AddMinutes(1))
-                    date = date.AddDays(1);
-
-                DateExtinction = date;
+                DateExtinction = dateTime ?? new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, Heure, Minute, Seconde);
             }
         }
 
-        private bool ActionAutorisee()
+        private bool ActiverExtinction()
         {
-            return ModeMinuteur ? DateExtinction > DateTime.Now.AddSeconds(2) : true;
+            if (DateExtinction < DateTime.Now.AddSeconds(3)
+                && MessageBox.Show("Êtes-vous sûr de vouloir éteindre l'ordinateur immédiatement ?", "Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                return false;
+
+            return ExtinctionDesactivee = !ExtinctionDesactivee;
         }
     }
 }
