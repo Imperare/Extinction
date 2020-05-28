@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ProgExtinction.View"
         mc:Ignorable="d"
         Loaded="Window_Loaded"
-        Title="MainWindow"         
+        Title="MainWindow"   
+        ResizeMode="NoResize"
         Height="170" 
         Width="400">
     <Grid x:Name="grid" >
