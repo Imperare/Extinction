@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgExtinction", "ProgExtinction\ProgExtinction.csproj", "{73C9C53F-BA43-4B4A-8A00-F6D4BDAF0437}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extinction", "Extinction\Extinction.csproj", "{73C9C53F-BA43-4B4A-8A00-F6D4BDAF0437}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
