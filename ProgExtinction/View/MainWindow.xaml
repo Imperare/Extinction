@@ -22,7 +22,7 @@
                         <Setter Property="Foreground" Value="Black"/>
                     </Trigger>
                     <Trigger Property="IsEnabled" Value="False">
-                        <Setter Property="Foreground" Value="Gray"/>
+                        <Setter Property="Foreground" Value="#B0B0B0"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>
@@ -54,7 +54,7 @@
                                     <Setter Property="Foreground" Value="Black"/>
                                 </Trigger>
                                 <Trigger Property="IsEnabled" Value="False">
-                                    <Setter Property="Foreground" Value="Gray"/>
+                                    <Setter Property="Foreground" Value="#B0B0B0"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -80,7 +80,7 @@
                                 <Setter  TargetName="text" Property="Foreground" Value="Black" />
                             </Trigger>
                             <Trigger Property="IsEnabled" Value="False">
-                                <Setter TargetName="text" Property="Foreground" Value="Gray" />
+                                <Setter TargetName="text" Property="Foreground" Value="#B0B0B0" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
