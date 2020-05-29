@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace ProgExtinction.Helpers
+namespace Extinction.Helpers
 {
     public class RelayCommand : ICommand
     {

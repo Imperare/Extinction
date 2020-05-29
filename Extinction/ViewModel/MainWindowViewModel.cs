@@ -1,11 +1,11 @@
-﻿using ProgExtinction.Helpers;
+﻿using Extinction.Helpers;
 using System;
 using System.Diagnostics;
 using System.Timers;
 using System.Windows;
 using System.Windows.Input;
 
-namespace ProgExtinction.ViewModel
+namespace Extinction.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {

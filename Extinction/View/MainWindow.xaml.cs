@@ -1,5 +1,5 @@
-﻿using ProgExtinction.Helpers;
-using ProgExtinction.ViewModel;
+﻿using Extinction.Helpers;
+using Extinction.ViewModel;
 using System;
 using System.Text.RegularExpressions;
 using System.Timers;
@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace ProgExtinction.View
+namespace Extinction.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

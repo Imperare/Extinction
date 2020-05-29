@@ -1,18 +1,17 @@
-﻿using System.Globalization;
-using System.Threading;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 
-namespace ProgExtinction
+namespace Extinction
 {
     /// <summary>
-    /// Interaction logic for App.xaml
+    /// Logique d'interaction pour App.xaml
     /// </summary>
     public partial class App : Application
     {
-        public App()
-        {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("fr-FR");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
-        }
     }
 }

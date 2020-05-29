@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace ProgExtinction.Helpers
+namespace Extinction.Helpers
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
